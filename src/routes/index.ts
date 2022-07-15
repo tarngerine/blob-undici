@@ -8,7 +8,8 @@ export const patch: RequestHandler = async ({ request }) => {
 	//     which will go to another API call
 	const formWithImage = new FormData();
 	formWithImage.append('file', form.get('file')!);
-	// B) to convert the FormData to a Blob to get content-type boundary to pass as header
+	// B) to convert the FormData to a Blob to get content-type boundary to pass as header, which the API expects
+	//    not sure how else to get the boundary
 	const blob = formDataToBlob(formWithImage);
 	const contentTypeWithBoundary = blob.type;
 
